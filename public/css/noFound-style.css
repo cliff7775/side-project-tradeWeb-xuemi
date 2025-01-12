@@ -1,0 +1,78 @@
+.noFoundWrapper{
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+
+.noFoundBox{
+    border: 2px solid #000;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* position 搭配 transform 的至中方式*/
+    border-radius: 5px;
+    /*變形屬性  百分比的參考值是自己
+    transform: translate(100px,100px) scale(2);
+    */
+    box-shadow: 0 0 5px gray; /* 陰影效果 */
+}
+
+
+.noFoundWrapper p{
+    color:#fff;
+    font-size:17px;
+    padding: 0; /* 內邊距 */
+    display: inline-block;
+}
+
+.noFoundMainStyle{
+    height: 100%;
+    margin: 5px 5px 5px 5px;
+}
+
+.noFoundWrapper .specTextFontStyle{
+    text-align:center; /* 內部內容致置中 */
+
+}
+
+.noFoundWrapper .specTextFontStyle p{
+    font-size: 25px;
+}
+
+.noFoundWrapper .specMainTextFontStyle{
+    text-align:center; /* 內部內容致置中 */
+
+}
+
+.noFoundWrapper .specMainTextFontStyle p{
+    font-size: 35px;
+    color: #000;
+}
+
+.noFoundWrapper .firstSectionStyle{
+    height: 30%;
+    background-color: #000;
+    display: flex;
+}
+
+.noFoundWrapper .firstSectionStyle p{
+    margin: auto;
+}
+
+.noFoundWrapper .secondSectionStyle{
+    height: 40%;
+    display: flex;
+}
+
+.noFoundWrapper .secondSectionStyle p{
+    margin: auto;
+}
+
+.noFoundWrapper .thirdSectionStyle{
+    height: 28%;
+    background-color: #000;
+}
+

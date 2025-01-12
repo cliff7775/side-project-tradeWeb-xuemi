@@ -1,0 +1,81 @@
+<link  rel="stylesheet" href="../css/categoryProducts-style.css">
+<div class="categoryProductsWrapper">
+    <div id="merchandiseFilter" class="borderFontStyle">
+        <div class="extendMarginElm">
+            <div class="labelStyle"><p>價格區間</p></div>
+            <select id="PriceRange" class="inputStyle">
+                <option value="">請選擇</option>
+                <option value="lessThan100">＄0 - 100</option>
+                <option value="lessThan500">＄101 - 500</option>
+                <option value="lessThan1000">＄501 - 1000</option>
+                <option value="greaterThan1000">＄1001 - MAX</option>
+            </select>
+        </div>
+        <div class="extendMarginElm">
+            <div class="labelStyle"><p>價格排序</p></div>
+            <select id="PriceSorting" class="inputStyle">
+                <option value="">請選擇</option>
+                <option value="SortFromHighest">從最高排序</option>
+                <option value="SortFromLowest">從最低排序</option>
+            </select>
+        </div>
+        <hr>
+        <div id="applyFilter"><button type="button"><p>套用篩選條件</p></button></div>
+    </div>
+    <div id="merchandiseShow" class="borderFontStyle">
+        <div class="extendMarginElm modMultiElmPosition" >
+            <div class="setProTextFontStyle"><p>{{commonText}}</p></div>
+            <div class="setProTextFontStyle"><p id="categoryValue">{{identifyText}}</p></div>
+            <div class="setProTextFontStyle"><p>{{feedbackText}}</p></div>
+        </div>
+        <div id="merchandiseContent" class="productWrapper">
+            {{#each productInfoResult}}
+                <div class="productBox" key={{product_id}}>
+                    <div class="modCenterElmPosition">
+                        <div class="modMultiElmPosition modProContWidthElm">
+                            <div class="modProWidthElm">
+                                <div class="setProTextFontStyle"><p>商品編號</p></div>
+                                <div class="setProTextFontStyle"><p>商品名稱</p></div>
+                                <div class="setProTextFontStyle"><p>商品價格</p></div>
+                            </div>
+                            <div class="modProWidthElm">
+                                <div id="productID" class="setProTextFontStyle"><p>{{product_id}}</p></div>
+                                <div id="productName" class="setProTextFontStyle"><p>{{product_name}}</p></div>
+                                <div id="productPrice" class="setProTextFontStyle"><p>{{product_price}}</p></div>
+                            </div>
+                        </div>
+                        <div class="modCenterElmPosition">
+                            <div onclick="addToCart(this)" class="modTextFontStyle"><p>加入購物車</p></div>
+                        </div>
+                    </div>  
+                </div>
+            {{/each}}
+        </div>
+        <div>
+            <div class="modCenterElmPosition">
+                    <div class="modCenterFontStyle">
+                        <button  id="prev" onclick="changePage(-1)"><p>上一頁</p></button>
+                        <span id="page-info"></span>
+                        <button  id="next" onclick="changePage(1)"><p>下一頁</p></button>
+                    </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div class="modCenterElmPosition">
+                <div class="modCenterFontStyle">
+                    <button onclick="sendCartItem()"><p>結帳</p></button>
+                </div>   
+            </div>
+        </div>
+    </div>
+      
+    <div id="cartStatus" class="visibilityElm modFixButtomProductListElm">
+        
+    </div>
+    <button id="controlUserCart"  class="modButtonElmStyle modFixButtomElm"><p>顯示/隱藏購物車</p></button>
+</div>
+
+
+
+<script src="../js/categoryProducts.js"></script>

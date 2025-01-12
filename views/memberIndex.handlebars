@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../css/memberindex-style.css">
+
+<div class="memberindexWrapper">
+    <div class="memberindexBox">
+        <div class="modElmPosition">
+            <div class="specTextFontStyle"><p>歡迎 {{username}} 用戶回來!</p></div>
+        </div>
+        <div class="memberindexMainStyle">
+            <div class="modMultiElmPosition">
+            <div class="sideNavDashboardStyle">
+                <a href="https://cliffweb.zeabur.app/member/history_order"><button><p>查詢歷史訂單</p></button></a>
+                <a href="https://cliffweb.zeabur.app/member/reset_pwd"><button><p>更新密碼</p></button></a>
+            </div>
+            <div class="mainContentStyle">
+                <div class="labelStyle"><p>會員名稱</p></div>
+                <div class="inputStyle"><input id="username" type="text" value="" placeholder="{{username}}" size="30"></div><br>
+                <div class="labelStyle"><p>會員信箱</p></div>
+                <div class="inputStyle"><input id="usermail" type="email" value="" placeholder="{{usermail}}" size="30" readonly></div><br>
+                <div class="labelStyle"><p>會員生日</p></div>
+                {{#if (validBirthday userbirthday)}}
+                <div class="inputStyle"><input id="userbirthday" type="date" value="{{userbirthday}}" size="30" ></div><br>
+                {{else}}
+                <div class="inputStyle"><input id="userbirthday" type="date" value="" size="30" ></div><br>
+                {{/if}} 
+                <div class="labelStyle"><p>會員性別</p></div>
+                {{#if (validUserGender usergender)}}
+                    {{#if (eqUserGender usergender "男")}}
+                    <select name="" id="usergender">
+                        <option>{{usergender}}</option>
+                        <option value="Female">女</option>
+                    </select><br>
+                    {{else}}
+                    <select name="" id="usergender">
+                        <option>{{usergender}}</option>
+                        <option value="Male">男</option>
+                    </select><br>
+                    {{/if}}
+                {{else}}
+                <select name="" id="usergender">
+                    <option value="">未選擇</option>
+                    <option value="Male">男</option>
+                    <option value="Female">女</option>
+                </select><br>
+                {{/if}}
+                <hr>
+                <div>
+                    <div class="modCenterFontStyle">
+                        <button type="button" onclick="updateUserInfo()"><p>更新會員資訊</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/memberIndex.js"></script>

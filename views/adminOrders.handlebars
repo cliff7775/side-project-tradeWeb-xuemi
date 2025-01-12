@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="../css/adminOrders-style.css">
+
+<div class="adminMemberOrdersWrapper">
+    <div class="adminMemberOrdersBox">
+        <div class="specTextFontStyle"><p>全用戶歷史訂單</p></div>
+        <div>
+            <div class="modPaddingElmPosition">
+                <div class="modMultiElmPosition">
+                    <div class="modContainer">
+                        <div class="title"><p>更新個別用戶訂單狀態</p></div>
+                    </div>
+                    <div class="modMarginLeftElmPosition">
+                        <form action="https://cliffweb.zeabur.app/admin/accordneed_rankuserOrders" method="POST">
+                        <div class="labelStyle"><p>訂單編號</p></div>
+                        <div class="inputStyle"><input type="text" name="tradeNum" required></div>
+                        <select name="tradeUpdateState">
+                            <option value="true">成立</option>
+                            <option value="false">不成立</option>
+                        </select>
+                        <button type="submit"><p>更新</p></button>
+                    </form>
+                    </div>   
+                </div>
+                <hr>
+                <div class="modMultiElmPosition">
+                    <div class="modContainer">
+                        <div class="title"><p>查詢所有用戶訂單狀態</p></div>
+                    </div>
+                    <div class="modMarginLeftElmPosition">
+                        <form action="https://cliffweb.zeabur.app/admin/accordneed_rankuserOrders" method="POST">
+                        <select name="tradeStateSort">
+                            <option value="true">成立</option>
+                            <option value="false">不成立</option>
+                        </select>
+                        <button type="submit"><p>查詢</p></button>
+                    </form>
+                    </div>
+                </div>
+                <hr>
+                <div class="modMultiElmPosition">
+                    <div class="modContainer">
+                        <div class="title"><p>查詢用戶訂單日期排序</p></div>
+                    </div>
+                    <div class="modMarginLeftElmPosition">
+                        <form action="https://cliffweb.zeabur.app/admin/accordneed_rankuserOrders" method="POST">
+                            <select name="tradeDateSort">
+                                <option value="latest">訂單成立日期(由新到舊)</option>
+                                <option value="Oldest">訂單成立日期(由舊到新)</option>
+                            </select>
+                            <button type="submit"><p>查詢</p></button>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <div class="modMultiElmPosition">
+                    <div class="modContainer">
+                        <div class="title"><p>查詢用戶選取某段日期區間的訂單</p></div>
+                    </div>
+                    <div class="modMarginLeftElmPosition">
+                        <form action="https://cliffweb.zeabur.app/admin/accordneed_rankuserOrders" method="POST">
+                            <select name="tradeChoseDate">
+                                <option value="Past1week">過去一週</option>
+                                <option value="Past3week">過去三週</option>
+                                <option value="Past1month">過去30日</option>
+                            </select>
+                            <button type="submit"><p>查詢</p></button>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <div class="modMultiElmPosition">
+                    <div class="modContainer">
+                        <div class="title"><p>查詢訂單編號詳細資訊</p></div>
+                    </div>
+                    <div class="modMarginLeftElmPosition">
+                        <div class="inputStyle"><input type="text" id="inputTradeNum" required></div>
+                        <button id="querySpecificTradeDetailedInfo"><p>查詢</p></button>
+                        <button id="clearSpecificTradeDetailedInfo"><p>清除查詢</p></button>
+                    </div> 
+                </div>
+                <hr>
+                <div id="displaySpecificTradeDetailedInfo"></div>
+            </div>
+        </div>
+        <div>
+            <div id="displayOrderBox">
+                <div class="modMultiElmPosition">
+                    <div class="tradeState"><p>訂單狀態</p></div>
+                    <div class="tradeUser"><p>訂單用戶</p></div>
+                    <div class="tradeMerNo"><p>訂單編號</p></div>
+                    <div class="tradeTime"><p>訂單時間</p></div>
+                    <div class="tradeProcess"><p>訂單進度</p></div>
+                    <div class="tradeProNum"><p>商品總數</p></div>
+                    <div class="tradePayment"><p>付款方式</p></div>
+                    <div class="tradePrice"><p>訂單合計</p></div>
+                </div>
+                <div id="userOrdersContent">
+                    {{#each allOrdersInfoResult}}
+                        <div class="orderCard" class="modMultiElmPosition"> 
+                            <div class="userTradeState">{{trade_is_established}}</div>
+                            <div class="userTradeUser">{{'( SELECT user_name FROM spusers WHERE user_id = splinkUsersAndTrades.user_id)'}}</div>
+                            <div class="userTradeMerNo">{{trade_id}}</div>
+                            <div class="userTradeTime">{{trade_date}}</div>
+                            <div class="userTradeProcess">{{trade_process_state}}</div>
+                            <div class="userTradeProNum">{{trade_productNum}}</div>
+                            <div class="userTradePayment">{{exchangeEcpayText trade_payment_type}}</div>
+                            <div class="userTradePrice">{{trade_total_amount}}</div>
+                        </div>
+                    {{/each}}
+                </div>
+                <hr>
+                <div>
+                    <div class="modCenterElmPosition modElmPosition">
+                        <button id="prev" onclick="changePage(-1)"><p>上一頁</p></button>
+                        <span id="page-info"></span>
+                        <button id="next" onclick="changePage(1)"><p>下一頁</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modSideNavElm">
+            <div class="specTextFontStyle"><p>選單</p></div>
+            <div><a href="https://cliffweb.zeabur.app/admin/"><button><p>管理者頁面</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/admin/query_userOrders"><button><p>查詢用戶歷史訂單</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/admin/reset_pwd"><button><p>更新密碼</p></button></a></div>
+    </div>
+</div>
+
+
+<script src="../js/adminOrders.js"></script>

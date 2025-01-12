@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../css/register-style.css">
+
+<div class="registerWrapper">
+    <div class="registerBox">
+        <div class="registerMainStyle">
+            <div class="specTextFontStyle"><p>歡迎加入</p></div>
+            <form action="https://cliffweb.zeabur.app/register/" method="POST">
+                <div class="labelStyle"><p>帳號</p></div>
+                <div class="inputStyle"><input type="text" name="name" placeholder="請輸入帳號" maxlength="20" size="30" required></div><br>
+                <div class="labelStyle"><p>信箱</p></div>
+                <div class="inputStyle"><input type="email" name="email" placeholder="請輸入信箱" maxlength="50" size="30" required></div><br>
+                <div class="labelStyle"><p>密碼</p></div>
+                <div class="inputStyle"><input type="text" name="password" placeholder="請輸入密碼" maxlength="20" size="30" required></div><br>
+                <div><input type="hidden" name="_csrf" value="{{token}}"></div>
+                <hr>
+                <div class="modElmPosition">
+                    <div><button type="submit"><p>註冊</p></button></div>
+                </div>
+                <hr>
+            </form>
+        </div>
+        <div class="registerBannerStyle">
+        </div>
+    </div>
+</div>

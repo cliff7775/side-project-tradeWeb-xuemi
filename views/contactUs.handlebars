@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="../css/contact-style.css">
+
+<div class="contactWrapper">
+    <div class="contactBox">
+        <div class="contactMainStyle">
+            <div class="labelStyle"><p>姓名</p></div>
+            <div class="inputStyle"><input type="text" id="name" placeholder="請輸入姓名" value="" size="30"></div><br>
+            <div class="labelStyle"><p>信箱</p></div>
+            <div class="inputStyle"><input type="text" id="mail" placeholder="請輸入信箱" value="" size="30"></div><br>
+            <div class="labelStyle"><p>連絡電話</p></div>
+            <div class="inputStyle"><input type="text" id="phone" placeholder="請輸入電話號碼" value="" size="30"></div><br>
+            <div class="labelStyle"><p>想反應內容</p></div>
+            <div class="inputStyle">
+                <select name="" id="subject">
+                    <option value="請選擇">請選擇</option>
+                    <option value="網站錯誤">網站錯誤</option>
+                    <option value="訂單問題">訂單問題</option>
+                    <option value="會員問題">會員問題</option>
+                    <option value="建議事項">建議事項</option>
+                    <option value="其他(請在備註中說明)">其他(請在備註中說明)</option>
+                </select>
+            </div><br>
+            <div class="labelStyle"><p>輸入內容</p></div>
+            <div class="inputStyle"><textarea id="textareacontent"value="" rows="10" cols="44" ></textarea></div>
+            <div class="labelStyle"><p>檔案附件</p></div>
+            <div class="inputStyle"><input type="file" id="filemessage"></div>
+            <hr>
+                <div class="modCenterElmPosition modElmPosition">
+                    <button id="strupload"><p>開始寄信</p></button>
+                </div>     
+            <hr>
+            <div class="modMultiElmPosition">
+                <div class="firstBoxSection"><p>附件上傳進度</p></div>
+                <div class="secondBoxSection" id="progressbarNum">0</div>
+                <div class="extraBoxSection">%</div>
+                <div class="thirdBoxSection">
+                    <form action="/test.aspx" method="post">
+                        <progress id="progressbarAnime" value="0" max="100"></progress>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="contactBannerStyle"></div>
+    </div>
+</div>
+
+<script src="../js/contactFunction.js"></script>

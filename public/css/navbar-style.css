@@ -1,0 +1,93 @@
+/*全域選擇器*/
+*{
+    box-sizing: border-box;
+}
+
+.navWrapper{
+    width: auto;
+    height: 65px;
+    background-color:#000000;
+    border-radius: 3px;
+    display: flex;
+}
+
+.navWrapper p{
+    color:white;
+    font-size:17px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.navWrapper button{
+    border: 3px solid;
+    border-color: aliceblue;
+    border-radius: 15px;
+    background-color: #000000;
+    width: 150px;
+}
+
+.navWrapper input{
+    width: auto; /* 寬度 */
+    height: auto; /* 高度 */
+    font-size: 17px; /* 字型大小 */
+    border-radius: 5px; /* 邊框圓角 */
+    border: 2px solid #000; /* 邊框顏色和厚度 */
+    display: inline-block; /* 將 input 標籤設為 inline-block */
+}
+
+.navWrapper input:focus{
+    border-color: #bdc7e3; /* 獲得焦點時的邊框顏色 */
+    border: 2px solid #bdc7e3; /* 邊框顏色和厚度 */
+    outline: none; /* 取消預設的輪廓 */
+    background-color: #bdc7e3;
+    box-shadow: 0 0 5px #bdc7e3; /* 陰影效果 */
+}
+
+
+.navWrapper .firstNavSection{
+    width: 5%;
+    display: inline-block;
+    border-right: 1px solid #fff;
+}
+
+.navWrapper .secondNavSection{
+    width: 70%;
+    display: inline-block;
+    display: flex;
+    border-right: 1px solid #fff;
+}
+
+.navWrapper .thirdNavSection{
+    width: 25%;
+    display: inline-block;
+}
+
+.navWrapper .secondNavSection div{
+    width: 17%;
+    display: inline-block;
+}
+
+
+.navWrapper .modCenterElmFonStyle{
+    text-align:center; /* 內部內容致置中 */
+    margin: auto;
+}
+
+.navWrapper .setButtonWidthElm{
+    width: 90%;
+}
+
+
+.navWrapper .modMultiElmPosition{
+    display: flex;
+}
+
+.navWrapper .setHeightElm{
+    height: 100%;
+}
+
+
+
+
+

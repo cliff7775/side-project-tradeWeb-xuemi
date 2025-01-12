@@ -1,0 +1,30 @@
+{
+  "name": "side-project-tradeweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cliff",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "connect-redis": "^8.0.1",
+    "cookie-parser": "^1.4.7",
+    "csrf": "^3.1.0",
+    "ecpay_aio_nodejs": "^1.2.2",
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.1",
+    "googleapis": "^144.0.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.3",
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.7",
+    "rate-limiter-flexible": "^5.0.4",
+    "redis": "^4.7.0"
+  }
+}

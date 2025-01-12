@@ -1,0 +1,76 @@
+.redirectUrlWrapper{
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+
+.redirectUrlBox{
+    /* position 百分比的參考值是上一層元素*/
+    /*元素沒有明確的上一層（例如父元素）考值將會是 整個瀏覽器視窗（即 viewport）*/
+    border: 1px solid #000;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* position 搭配 transform 的至中方式*/
+    border-radius: 5px;
+    /*變形屬性  百分比的參考值是自己
+    transform: translate(100px,100px) scale(2);
+    */
+    box-shadow: 0 0 5px gray; /* 陰影效果 */
+}
+
+.redirectUrlWrapper p{
+    color:#fff;
+    font-size:17px;
+    padding: 0; /* 內邊距 */
+    display: inline-block;
+}
+
+.redirectUrlMainStyle{
+    height: 100%;
+    margin: 5px 5px 5px 5px;
+}
+
+.firstRowSectionStyle{
+    height: 30%;
+    text-align:center; /* 內部內容致置中 */
+    background-color: #000;
+    display: flex;
+}
+
+.firstRowSectionStyle p{
+    margin: auto;
+}
+
+
+.secondRowSectionStyle{
+    height: 40%;
+    display: flex;
+}
+
+.secondRowSectionStyle div{
+    margin: auto;
+}
+
+.thirdSectionStyle{
+    height: 28%;
+    background-color: #000;
+}
+
+
+.specTextFontStyle p{
+    font-size: 25px;
+}
+
+.specMainTextFontStyle{
+    text-align:center; /* 內部內容致置中 */
+}
+
+.specMainTextFontStyle p{
+    font-size: 50px;
+    color: #000;
+}
+

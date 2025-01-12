@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="../css/memberUpdatePassword-style.css">
+
+<div class="memUpdatePasswordWrapper">
+    <div class="memUpdatePasswordBox">
+        <div class="memUpdatePasswordMainStyle">
+            <div class="specTextFontStyle"><p>修改密碼</p></div>
+            <hr>
+            <div class="labelStyle"><p>請輸入舊密碼</p></div>
+            <div class="inputStyle"><input id="oldPwd"  type="text" placeholder="請填寫現在的密碼" maxlength="50" value="" size="30" ></div><br>
+            <div class="labelStyle"><p>請輸入新密碼</p></div>
+            <div class="inputStyle"><input id="newPwd" type="text" placeholder="請填寫新的密碼" maxlength="50" value="" size="30"></div><br>
+            <div class="labelStyle"><p>再次輸入新密碼</p></div>
+            <div class="inputStyle"><input id="newPwdAgain" type="password" placeholder="請再次填寫新的密碼" maxlength="50" value="" size="30"></div>
+            <hr>
+            <div class="modElmPosition">
+                <div><button type="button" onclick="updateUserPW()"><p>更新密碼</p></button></div>
+            </div>
+            <hr>
+        </div>
+        <div class="memUpdatePasswordBannerStyle"></div>
+    </div>
+    <div class="modSideNavElm">
+            <div class="specTextFontStyle"><p>選單</p></div>
+            <div><a href="https://cliffweb.zeabur.app/member/"><button><p>會員頁面</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/member/history_order"><button><p>歷史訂單</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/member/reset_pwd"><button><p>更新密碼</p></button></a></div>
+        </div>
+</div>
+
+<script src="../js/memberUpdatePassword.js"></script>

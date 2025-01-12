@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="../css/memberOrders-style.css">
+
+<div class="memberOrdersWrapper">
+    <div class="memberOrdersBox">
+        <div class="specTextFontStyle"><p>歷史訂單</p></div>
+        <div>
+            <div class="modElmPosition">
+                <div class="labelStyle"><p>輸入訂單編號</p></div>
+                <div class="inputStyle"><input type="text" id="accessMerchantradeValue" ></div>
+                <button id="queryMerchantradeDetailedInfo"><p>查詢訂單</p></button>
+                <button onclick="delMerchantradeInfo()"><p>清除訂單</p></button>
+                <div id="displayOrderWithDetailed"></div>
+            </div>
+            <hr>
+        </div>
+        <div>
+            <div id="displayOrderBox">
+                <div class="modMultiElmPosition">
+                            <div class="tradeMerNo"><p>訂單編號</p></div>
+                            <div class="tradeTime"><p>訂單時間</p></div>
+                            <div class="tradeState"><p>訂單狀態</p></div>
+                            <div class="tradeProNum"><p>商品總數</p></div>
+                            <div class="tradePayment"><p>付款方式</p></div>
+                            <div class="tradePrice"><p>訂單合計</p></div>
+                </div>
+                <div id="userOrdersContent">
+                    {{#each userOrdersInfoResult}}
+                        <div class="orderCard" class="modMultiElmPosition"> 
+                            <div class="usertradeMerNo">{{trade_id}}</div>
+                            <div class="usertradeTime">{{trade_date}}</div>
+                            <div class="usertradeState">{{trade_process_state}}</div>  
+                            <div class="usertradeProNum">{{trade_productNum}}</div>
+                            <div class="usertradePayment">{{ exchangeEcpayText trade_payment_type}}</div>
+                            <div class="usertradePrice">{{trade_total_amount}}</div>
+                        </div>
+                    {{/each}}
+                </div>
+                <hr>
+                <div>
+                    <div class="modContainer">
+                        <button id="prev" onclick="changePage(-1)"><p>上一頁</p></button>
+                        <span id="page-info"></span>
+                        <button id="next" onclick="changePage(1)"><p>下一頁</p></button>    
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <div class="modSideNavElm">
+            <div class="specTextFontStyle"><p>選單</p></div>
+            <div><a href="https://cliffweb.zeabur.app/member/"><button><p>會員頁面</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/member/history_order"><button><p>歷史訂單</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/member/reset_pwd"><button><p>更新密碼</p></button></a></div>
+        </div>
+
+</div>
+
+<script src="../js/memberOrders.js"></script>
+

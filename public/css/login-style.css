@@ -1,0 +1,152 @@
+
+
+.loginWrapper{
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+
+.loginBox{
+    /* position 百分比的參考值是上一層元素*/
+    /*元素沒有明確的上一層（例如父元素）考值將會是 整個瀏覽器視窗（即 viewport）*/
+    border: 1px solid #000;
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* position 搭配 transform 的至中方式*/
+    border-radius: 5px;
+    /*變形屬性  百分比的參考值是自己
+    transform: translate(100px,100px) scale(2);
+    */
+    box-shadow: 0 0 5px gray; /* 陰影效果 */
+}
+
+.loginWrapper p{
+    color:#fff;
+    font-size:17px;
+    padding: 0; /* 內邊距 */
+    margin: 5px  5px;
+    display: inline-block;
+}
+
+.loginWrapper .labelStyle{
+    width: 100px; /* 寬度 */
+    height: auto; /* 高度 */
+    border-radius: 10px; /* 邊框圓角 */
+    text-align:center; /* 內部內容致置中 */
+    border: 1px solid #000; /* 邊框顏色和厚度 */
+    display: inline-block; /* 將 label 標籤設為 inline-block */
+    background-color: #000;
+    margin-top: 5px;
+} 
+
+.loginWrapper .inputStyle {
+    width: auto; /* 寬度 */
+    height: auto; /* 高度 */
+    font-size: 17px; /* 字型大小 */
+    border-radius: 5px; /* 邊框圓角 */
+    border: 2px solid #000; /* 邊框顏色和厚度 */
+    display: inline-block; /* 將 input 標籤設為 inline-block */
+    margin-top: 5px;
+}
+
+/* 當輸入框獲得焦點時的樣式 */
+.loginWrapper input:focus{
+    border-color: #bdc7e3; /* 獲得焦點時的邊框顏色 */
+    border: 2px solid #bdc7e3; /* 邊框顏色和厚度 */
+    outline: none; /* 取消預設的輪廓 */
+    background-color: #bdc7e3;
+    box-shadow: 0 0 5px #bdc7e3; /* 陰影效果 */
+}
+
+.loginWrapper button{
+    width: 200px; /* 寬度 */
+    height: 40px; /* 寬度 */
+    border:1px solid #000;
+    background-color: #000; /* 背景顏色 */
+    border-radius: 10px; /* 邊框圓角 */
+    text-align:center; /* 內部內容致置中 */
+    margin: 10px;
+}
+
+.loginWrapper button p{
+    padding: 0; /* 內邊距 */
+    margin: 0; /* 外邊距 */
+}
+
+.loginWrapper .modElmPosition{
+    text-align:center; /* 內部內容致置中 */
+}
+
+.loginWrapper .modMultiElmPosition{
+    display: flex;
+    margin-top: 5px;
+}
+
+.firstBoxSection{
+    width: 50%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+    position: relative;
+}
+
+.firstBoxSection div{
+    width: 80%;
+    border: 2px solid #000;
+    border-radius: 5px; /* 邊框圓角 */
+    box-shadow: 0 0 5px #bdc7e3; /* 陰影效果 */
+    position: absolute;
+    transform: translate(10%);
+
+}
+
+.firstBoxSection p{
+    color: #000;
+    font-size: 20px;
+}
+
+.secondBoxSection{
+    width: 50%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+    position: relative;
+
+}
+
+.secondBoxSection div{
+    width: 80%;
+    border: 2px solid #000;
+    border-radius: 5px; /* 邊框圓角 */
+    box-shadow: 0 0 5px #bdc7e3; /* 陰影效果 */
+    position: absolute;
+    transform: translate(10%);
+}
+
+.secondBoxSection p{
+    color: #000;
+    font-size: 20px;
+}
+
+
+.loginMainStyle{
+    height: 80%; /* 寬度 */
+    margin: 5px 5px 0px 5px;
+}
+
+.loginBannerStyle{
+    height: 20%; /* 寬度 */
+    background-color: #000;
+    border-radius: 5px;
+}
+
+.specTextFontStyle{
+    text-align:center; /* 內部內容致置中 */
+    background-color: #000;
+}
+
+.specTextFontStyle p{
+    font-size: 25px;
+}

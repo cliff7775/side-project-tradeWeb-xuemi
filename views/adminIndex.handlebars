@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="../css/adminIndex-style.css">
+
+<div class="adminindexWrapper">
+    <div class="adminindexBox">
+        <div class="specTextFontStyle"><p>歡迎管理用戶 {{username}} 回來!</p></div>
+        <div>
+            <div class="modCenterFontStyle">
+                <a href="https://cliffweb.zeabur.app/download/access_record_userentryweblog"><button><p>查詢用戶進站檔</p></button></a>
+                <a href="https://cliffweb.zeabur.app/download/access_record_userinputtextlog"><button><p>查詢用戶查詢檔</p></button></a>
+                <a href="https://cliffweb.zeabur.app/download/access_record_webresourcelog"><button><p>下載資源請求紀錄檔</p></button></a>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <div class="modMultiElmPosition">
+                <div class="boxTitleFontStyle setWidthFirstStyle"><p>總用戶註冊數</p></div>
+                <div class="boxTextFontStyle setWidthFirstStyle">{{#each allUserNumResult}}<p>{{'count(*)'}}</p>{{/each}}</div> 
+                <div class="boxTitleFontStyle setWidthFirstStyle"><p>總銷售額</p></div>
+                <div class="boxTextFontStyle setWidthFirstStyle">{{#each allTradePriceResult}}<p>{{"總銷售額"}}</p>{{/each}}</div>
+            </div>
+            <hr>
+            <div class="modMultiElmPosition">
+                {{#each allTradesStateResult}}
+                <div class="boxTitleFontStyle setWidthSecondStyle"><p>總訂單數</p></div>
+                <div class="boxTextFontStyle setWidthSecondStyle"><p>{{'總訂單'}}</p></div>
+                <div class="boxTitleFontStyle setWidthSecondStyle"><p>成立訂單數</p></div>
+                <div class="boxTextFontStyle setWidthSecondStyle"><p>{{'成立訂單數'}}</p></div>
+                <div class="boxTitleFontStyle setWidthSecondStyle"><p>未成立訂單數</p></div>
+                <div class="boxTextFontStyle setWidthSecondStyle"><p>{{'未成立訂單數'}}</p></div>
+                {{/each}}
+            </div>
+            <hr>
+            <div>
+                <div class="chartTitleFontStyle"><p>熱門銷售商品</p></div>
+                <div><canvas id="topSaleProductChart" width="250" height="150"></canvas></div>
+            </div>
+            <div>
+                <div class="chartTitleFontStyle"><p>類別銷售商品總數</p></div>
+                <div><canvas id="topSaleCategoryChart" width="250" height="150"></canvas></div>
+            </div>
+            <div>
+                <div class="chartTitleFontStyle"><p>訂單金額累積前面用戶</p></div>
+                <div><canvas id="calculateTradePriceUserChart" width="250" height="150"></canvas></div>
+            </div>
+            <div>
+                <div class="chartTitleFontStyle"><p>{{categoryValue}}類別商品銷售數</p></div>
+                <div>
+                    <div class="modCenterElmPosition">
+                        <form action="https://cliffweb.zeabur.app/admin/" method="GET">
+                                <label>選擇查詢</label>
+                                <select name="categoryID">
+                                    <option value="A1000">類別A</option>
+                                    <option value="B2000">類別B</option>
+                                    <option value="C3000">類別C</option>
+                                </select>
+                            <button type="submit"><p>查詢</p></button>
+                        </form>      
+                    </div>
+                </div>
+                <div>
+                    <canvas id="topSaleCategoryProductChart" width="350" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modSideNavElm">
+            <div class="specTextFontStyle"><p>選單</p></div>
+            <div><a href="https://cliffweb.zeabur.app/admin/"><button><p>管理者頁面</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/admin/query_userOrders"><button><p>查詢用戶歷史訂單</p></button></a></div>
+            <div><a href="https://cliffweb.zeabur.app/admin/reset_pwd"><button><p>更新密碼</p></button></a></div>
+    </div>
+</div>
+
+ <div id="topSaleProductResult">
+    {{#each topSaleProductRankResult}}
+        <div>
+            <span id="productName">{{product_name}}</span>
+            <span id="productQuantity">{{product_sales_quantity}}</span>
+        </div>
+    {{/each}}
+</div>
+<div id="categorySaleProductResult">
+    {{#each categorySaleProductRankResult}}
+        <div>
+            <span id="categoryIDName">{{product_category_id}}</span>
+            <span id="categoryIDProductQuantity">{{'SUM(product_sales_quantity)'}}</span>
+        </div>
+    {{/each}}
+</div>
+<div id="heightCalculatePriceUsersResult">
+    {{#each heightCalculatePriceUsersResult}}
+        <span id="calculatePriceName">{{user_name}}</span>
+        <span id="calculatePriceNum">{{'SUM(spMerchantrade.trade_total_amount)'}}</span>
+    {{/each}}
+</div>
+<div id="topSaleCategoryProductResult">
+    {{#each topSaleCategoryProductRankResult}}
+        <div>
+            <span id="categoryProductName">{{product_name}}</span>
+            <span id="categoryProductQuantity">{{product_sales_quantity}}</span>
+        </div>
+    {{/each}}
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/adminIndex.js"></script>

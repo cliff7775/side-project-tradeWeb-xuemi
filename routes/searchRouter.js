@@ -1,0 +1,16 @@
+//【引用模組功能】
+//------------------------------------------------------------------------------>
+const express = require("express");
+const router = express.Router();
+//【引用外部設定檔模組功能】
+//------------------------------------------------------------------------------>
+const searchController = require("../controllers/searchController.js");
+const recordUserInputText = require("../middleware/recordUserInputText.js");
+
+//【請求方法處理】
+//------------------------------------------------------------------------------>
+router.get("/", recordUserInputText, searchController.queryUserInputTextToDb);
+
+//【函式暴露】
+//------------------------------------------------------------------------------>
+module.exports = router;

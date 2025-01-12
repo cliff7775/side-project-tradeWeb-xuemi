@@ -1,0 +1,47 @@
+
+<link rel="stylesheet" href="../css/login-style.css">
+
+
+<div class="loginWrapper">
+    <div class="loginBox">
+        <div class="loginMainStyle">
+            <div class="specTextFontStyle"><p>歡迎回來</p></div>
+            <form action="https://cliffweb.zeabur.app/login/" method="POST">
+                <div class="labelStyle"><p>信箱</p></div>
+                <div class="inputStyle"><input type="email" name="email" placeholder="請輸入帳號" maxlength="40" size="30" required></div><br>
+                <div class="labelStyle"><p>密碼</p></div>
+                <div class="inputStyle"><input type="text" name="password" placeholder="請輸入密碼" maxlength="20" size="30" required></div><br>
+                <div><input type="hidden" name="_csrf" value="{{token}}"></div>
+                <hr>       
+                <div class="modElmPosition">
+                    <div><button type="submit"><p>登入</p></button></div>
+                </div>       
+                <hr>      
+            </form>
+                <div class="modElmPosition">
+                    <div><a href="../contact/updateUserPassWord"><button><p>忘記密碼</p></button></a></div>
+                </div>
+                <div class="modElmPosition">
+                    <div><a href="https://cliffweb.zeabur.app/register/"><button><p>註冊</p></button></a></div>
+                </div>
+                <hr>
+                <div class="modElmPosition">
+                    <div class="specTextFontStyle"><p>第三方登入</p></div>
+                </div>
+                <hr>
+                <div class="modElmPosition">
+                    <div class="modMultiElmPosition">
+                        <div class="firstBoxSection"><a href="../googleOauth2.0/login"><div><img src="../jpg/icon/google.png"><p>GOOGLE登入</p></div></a></div>
+                        <div class="secondBoxSection"><a href="../linev2.1/login"><div><img src="../jpg/icon/line.png"><p>LINE登入</p></div></a></div>
+                    </div> 
+                </div>   
+        </div>
+        <div class="loginBannerStyle"></div>
+    </div>
+    <div id="successUserLoginInfo">{{successLogin}}</div>
+</div>
+
+
+<script src="../js/login.js"></script>
+
+

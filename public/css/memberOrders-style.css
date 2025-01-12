@@ -1,0 +1,235 @@
+.memberOrdersWrapper{
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+
+.memberOrdersBox{
+    /* position 百分比的參考值是上一層元素*/
+    /*元素沒有明確的上一層（例如父元素）考值將會是 整個瀏覽器視窗（即 viewport）*/
+    border: 1px solid #000;
+    width: 850px;
+    height: auto; /* 700px */
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* position 搭配 transform 的至中方式*/
+    border-radius: 5px;
+    /*變形屬性  百分比的參考值是自己
+    transform: translate(100px,100px) scale(2);
+    */
+    box-shadow: 0 0 5px gray; /* 陰影效果 */
+}
+
+.modElmPosition{
+    margin: 10px;
+}
+
+.memberOrdersWrapper p{
+    color:#fff;
+    font-size:17px;
+    padding: 0; /* 內邊距 */
+    margin: 5px  5px;
+    display: inline-block;
+}
+
+.memberOrdersWrapper .labelStyle{
+    width: 140px; /* 寬度 */
+    height: auto; /* 高度 */
+    border-radius: 10px; /* 邊框圓角 */
+    text-align:center; /* 內部內容致置中 */
+    border: 1px solid #000; /* 邊框顏色和厚度 */
+    display: inline-block; /* 將 label 標籤設為 inline-block */
+    background-color: #000;
+    margin-top: 5px;
+} 
+
+.memberOrdersWrapper .inputStyle {
+    width: auto; /* 寬度 */
+    height: auto; /* 高度 */
+    font-size: 17px; /* 字型大小 */
+    border-radius: 5px; /* 邊框圓角 */
+    border: 2px solid #000; /* 邊框顏色和厚度 */
+    display: inline-block; /* 將 input 標籤設為 inline-block */
+    margin-top: 5px;
+}
+
+/* 當輸入框獲得焦點時的樣式 */
+.memberOrdersWrapper input:focus{
+    border-color: #bdc7e3; /* 獲得焦點時的邊框顏色 */
+    border: 2px solid #bdc7e3; /* 邊框顏色和厚度 */
+    outline: none; /* 取消預設的輪廓 */
+    background-color: #bdc7e3;
+    box-shadow: 0 0 5px #bdc7e3; /* 陰影效果 */
+}
+
+
+.memberOrdersWrapper button{
+    width: 200px; /* 寬度 */
+    height: 40px; /* 寬度 */
+    border:1px solid #000;
+    background-color: #000; /* 背景顏色 */
+    border-radius: 10px; /* 邊框圓角 */
+    text-align:center; /* 內部內容致置中 */
+    margin: 10px;
+}
+
+.memberOrdersWrapper button p{
+    padding: 0; /* 內邊距 */
+    margin: 0; /* 外邊距 */
+}
+
+.modMultiElmPosition{
+    display: flex;
+}
+
+.tradeMerNo{
+    width: 30%;
+    background-color: #000;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.tradeTime{
+    width: 20%;
+    background-color: #000;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.tradeState{
+    width: 10%;
+    background-color: #000;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.tradeProNum{
+    width: 10%;
+    background-color: #000;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.tradePayment{
+    width: 15%;
+    background-color: #000;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.tradePrice{
+    width: 15%;
+    background-color: #000;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.usertradeMerNo{
+    width: 30%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.usertradeTime{
+    width: 20%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.usertradeState{
+    width: 10%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.usertradeProNum{
+    width: 10%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.usertradePayment{
+    width: 15%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.usertradePrice{
+    width: 10%;
+    display: inline-block;
+    text-align:center; /* 內部內容致置中 */
+}
+
+
+.specTextFontStyle {
+    left:50%;
+    text-align:center; /* 內部內容致置中 */
+    background-color: #000;
+}
+
+.specTextFontStyle p{
+    font-size: 25px;
+}
+
+#page-info p{
+    color: black;
+}
+
+.modBoxElmPosition{
+    position: relative;
+}
+
+.modThisElmPosition{
+    left:50%;
+    display: flex;
+    transform: translate(-50%);
+    position: absolute;
+}
+
+.modMultiProElmPosition{
+    display: flex;
+    width: 60%;
+}
+
+.tradeProductID{
+    width:40%;
+    text-align:center; /* 內部內容致置中 */
+    display: inline-block;
+    border: 1px solid #000; /* 邊框顏色和厚度 */
+}
+
+.tradeProductNum{
+    width:30%;
+    text-align:center; /* 內部內容致置中 */
+    display: inline-block;
+    border: 1px solid #000; /* 邊框顏色和厚度 */
+}
+
+.tradeProductPrice{
+    width:30%;
+    text-align:center; /* 內部內容致置中 */
+    display: inline-block;
+    border: 1px solid #000; /* 邊框顏色和厚度 */
+}
+
+.tradeProductID p{
+    color:#000;
+}
+
+.tradeProductNum p{
+    color:#000;
+}
+
+.tradeProductPrice p{
+    color:#000;
+}
+
+.modContainer{
+    text-align:center; /* 內部內容致置中 */
+}
+
+
+.modSideNavElm{
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    text-align:center; /* 內部內容致置中 */
+    transform: translateY(-50%);
+    border: 0.5px solid #000;
+}

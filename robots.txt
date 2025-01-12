@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /member
+Disallow: /download
+Disallow: /checkout
+Disallow: /admin
+Disallow: /googleOauth2.0
+Disallow: /linev2.1
+
+Sitemap: https://cliffweb.zeabur.app/sitemap.xml

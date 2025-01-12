@@ -1,0 +1,157 @@
+.categoryProductsWrapper{
+
+}
+
+.categoryProductsWrapper p{
+    color:#fff;
+    font-size:17px;
+    padding: 0; /* 內邊距 */
+    margin: 5px  5px;
+    display: inline-block;
+}
+
+.categoryProductsWrapper  button{
+    width: 200px; /* 寬度 */
+    height: 40px; /* 寬度 */
+    border:1px solid #000;
+    background-color: #000; /* 背景顏色 */
+    border-radius: 10px; /* 邊框圓角 */
+    text-align:center; /* 內部內容致置中 */
+    margin: 10px;
+}
+
+.categoryProductsWrapper .labelStyle{
+    width: 100px; /* 寬度 */
+    height: auto; /* 高度 */
+    border-radius: 10px; /* 邊框圓角 */
+    text-align:center; /* 內部內容致置中 */
+    border: 1px solid #000; /* 邊框顏色和厚度 */
+    display: inline-block; /* 將 label 標籤設為 inline-block */
+    background-color: #000;
+}
+
+.categoryProductsWrapper .inputStyle{
+    width: auto; /* 寬度 */
+    height: auto; /* 高度 */
+    border-radius: 5px; /* 邊框圓角 */
+    border: 2px solid #000; /* 邊框顏色和厚度 */
+    display: inline-block; /* 將 input 標籤設為 inline-block */
+}
+
+.modCenterElmPosition{
+    width: 50%; /* 設定寬度 */
+    margin: auto; /* 自動 margin 可以使 div 置中 */
+}
+
+
+
+.extendMarginElm{
+    margin: 10px;
+}
+
+.productWrapper{
+    
+    display: grid; /**/ 
+    grid-template-columns: 1fr 1fr 1fr; /* 定義網格容器的 列結構 */  
+    grid-template-rows: 140px 140px 140px; /* 定義網格容器的 行結構  這裡有兩個 100px，表示每一行的高度固定為 100px。*/ 
+    grid-gap: 10px;  /*設置網格項目之間的 間距*/
+}
+
+.borderFontStyle{
+    border-style:solid; 
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 0 0 5px gray; /* 陰影效果 */
+}
+
+.productBox{
+    border-style:solid; 
+    border-color: black;
+    width: auto;
+    
+}
+
+.modMultiElmPosition{
+    display: flex;
+}
+
+/*調整商品卡文字樣式*/ 
+.setProTextFontStyle p{
+    color: #000
+}
+
+.modTextFontStyle{
+    width: 100px;
+    text-align: center;
+    background-color: black;
+    border-radius:10px
+}
+
+.modTextFontStyle p{
+    color: aliceblue;
+}
+
+/*商品卡內容寬度*/ 
+.modProContWidthElm{
+    width: 250px;
+}
+
+.modProWidthElm{
+    width: 125px;
+}
+
+.modCenterFontStyle{
+    text-align:center; /* 控制內部元素的水平對齊，只有其所有直接子元素會受到影響，影響行內元素、行內塊元素、文字內容 */
+}
+
+
+.modSelyElmPosition{
+    width: auto; /* 設定寬度 */
+    margin: auto; /* 自動 margin 可以使 div 置中 */
+}
+
+#page-info p{
+    color: black;
+}
+
+.back{
+    background-color: #000;
+}
+
+.modFixButtomProductListElm{
+    position: fixed; /* 固定在視窗 */
+    bottom: 60px; /* 距離底部 0 */
+    width: auto;
+    height: auto;
+}
+
+.modFixButtomElm{
+    position: fixed; /* 固定在視窗 */
+    bottom: 0; /* 距離底部 0 */
+    width: auto;
+    height: auto;
+}
+
+#controlUserCart .modFixButtomElm{
+    z-index: 3;
+}
+
+
+
+.visibilityElm{
+    visibility: hidden;
+}
+
+.divbackground{
+    background-color: rgb(229 229 229);
+}
+
+.categoryProductsWrapper .modButtonElmStyle{
+    background-color:#676767;
+    width: 150px; /* 寬度 */
+    height: 40px; /* 寬度 */
+    border:1px solid #000;
+    border-radius: 10px; /* 邊框圓角 */
+    text-align:center; /* 內部內容致置中 */
+    margin: 10px;
+}
