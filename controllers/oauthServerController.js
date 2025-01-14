@@ -109,7 +109,10 @@ const exchangeTokentoUserdata = async (req, res) => {
         req.session.userRole = userInfo.role_name; //資料庫回傳該用戶身分
         req.session.username = name; //GOOGLE回傳用戶名
         req.session.userID = userInfo.user_id;
-        res.render("home", { username: req.session.username });
+        res.render("home", {
+          username: req.session.username,
+          nonce: res.locals.cspNonce,
+        });
       }
       return;
     }
@@ -120,7 +123,10 @@ const exchangeTokentoUserdata = async (req, res) => {
       req.session.userRole = userInfoResult[0].role_name; //資料庫回傳該用戶身分
       req.session.username = name; //GOOGLE回傳用戶名
       req.session.userID = userInfo.user_id;
-      res.render("home", { username: req.session.username });
+      res.render("home", {
+        username: req.session.username,
+        nonce: res.locals.cspNonce,
+      });
     }
   } catch (error) {
     console.error("Error fetching user info:", error);

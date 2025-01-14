@@ -45,6 +45,7 @@ const getAdminWebPage = async (req, res) => {
     heightCalculatePriceUsersResult,
     topSaleCategoryProductRankResult,
     categoryValue: categoryID,
+    nonce: res.locals.cspNonce,
   });
 };
 
@@ -52,12 +53,19 @@ const viewAllMemberOrders = async (req, res) => {
   const { userID, username, userRole } = req.session;
   const allOrdersInfoResult =
     await productModelinstance.accessAllUserOrdersInfo();
-  res.render("adminOrders", { username: username, allOrdersInfoResult });
+  res.render("adminOrders", {
+    username: username,
+    allOrdersInfoResult,
+    nonce: res.locals.cspNonce,
+  });
 };
 
 const getMemberPwdWebPage = (req, res) => {
   const { userID, username, userRole } = req.session;
-  res.render("adminUpdatePW", { username: username });
+  res.render("adminUpdatePW", {
+    username: username,
+    nonce: res.locals.cspNonce,
+  });
 };
 
 const modifyMemberPassword = async (req, res) => {
@@ -111,7 +119,11 @@ const rankUserOrdersByNeed = async (req, res) => {
       const allOrdersInfoResult =
         await productModelinstance.accessAllUserOrdersInfo();
 
-      res.render("adminOrders", { username: username, allOrdersInfoResult });
+      res.render("adminOrders", {
+        username: username,
+        allOrdersInfoResult,
+        nonce: res.locals.cspNonce,
+      });
     }
   } else if (merchantradeValue) {
     const orderDetailedInfoResult =
@@ -127,19 +139,31 @@ const rankUserOrdersByNeed = async (req, res) => {
     const allOrdersInfoResult =
       await adminOrdersModelinstance.accessAllTradesByState(tradeStateSort);
 
-    res.render("adminOrders", { username: username, allOrdersInfoResult });
+    res.render("adminOrders", {
+      username: username,
+      allOrdersInfoResult,
+      nonce: res.locals.cspNonce,
+    });
     return;
   } else if (tradeDateSort) {
     const allOrdersInfoResult =
       await adminOrdersModelinstance.accessAllTradesByDate(tradeDateSort);
 
-    res.render("adminOrders", { username: username, allOrdersInfoResult });
+    res.render("adminOrders", {
+      username: username,
+      allOrdersInfoResult,
+      nonce: res.locals.cspNonce,
+    });
     return;
   } else if (tradeChoseDate) {
     const allOrdersInfoResult =
       await adminOrdersModelinstance.accessTradesBySpecificTime(tradeChoseDate);
 
-    res.render("adminOrders", { username: username, allOrdersInfoResult });
+    res.render("adminOrders", {
+      username: username,
+      allOrdersInfoResult,
+      nonce: res.locals.cspNonce,
+    });
     return;
   }
 };

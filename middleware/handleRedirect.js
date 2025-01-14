@@ -14,13 +14,15 @@ function handleRedirect(req, res, next) {
   } else {
     // 檢查變數有帶值，開始檢查重定向目標是否在白名單中
     if (!trustedWebUrls.includes(redirectUrlValue)) {
-      // //.includes() 方法會返回一個布林值，指示目標字串或陣列是否包含指定的值
-      res.status(400).send("Unauthorized redirectUrl");
+      // .includes() 方法會返回一個布林值，指示目標字串或陣列是否包含指定的值
+
+      res.status(400).render("redirectUrl", {});
     } else {
       // 如果驗證通過，執行轉址並設定
       res.status(302).redirect(redirectUrlValue);
     }
   }
 }
-
+//【函式暴露】
+//------------------------------------------------------------------------------>
 module.exports = handleRedirect;

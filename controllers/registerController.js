@@ -15,7 +15,11 @@ const registerModelinstance = new registerModel();
 const getRegisterWebPage = (req, res) => {
   const username = req.session.username || "會員";
   const token = req.csrfToken;
-  res.render("register", { username: username, token: token });
+  res.render("register", {
+    username: username,
+    token: token,
+    nonce: res.locals.cspNonce,
+  });
 };
 
 const createNewUser = async (req, res) => {
@@ -45,7 +49,7 @@ const createNewUser = async (req, res) => {
     req.session.userRole = role_name;
     req.session.username = user_name;
     req.session.userID = user_id;
-    res.render("home", { username: user_name }); //認證用戶新增狀態，
+    res.render("home", { username: user_name, nonce: res.locals.cspNonce }); //認證用戶新增狀態，
   }
 };
 //【函式暴露】

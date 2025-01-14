@@ -36,6 +36,7 @@ const getMemberWebPage = async (req, res) => {
     usermail: user_email,
     userbirthday: formattedDate,
     usergender: gender_name,
+    nonce: res.locals.cspNonce,
   });
 };
 
@@ -46,12 +47,19 @@ const viewMemberOrders = async (req, res) => {
   );
   console.log("userOrdersInfoResult", userOrdersInfoResult);
 
-  res.render("memberOrders", { username: username, userOrdersInfoResult });
+  res.render("memberOrders", {
+    username: username,
+    userOrdersInfoResult,
+    nonce: res.locals.cspNonce,
+  });
 };
 
 const getMemberPwdWebPage = (req, res) => {
   const { userID, username, userRole } = req.session;
-  res.render("memberUpdatePW", { username: username });
+  res.render("memberUpdatePW", {
+    username: username,
+    nonce: res.locals.cspNonce,
+  });
 };
 
 const accessOrderWithDetailedInfo = async (req, res) => {
@@ -62,7 +70,7 @@ const accessOrderWithDetailedInfo = async (req, res) => {
   }
   const orderDetailedInfoResult =
     await productModelinstance.accessOrderWithDetailedInfo(merchantradeValue);
-  console.log("orderDetailedInfoResult", orderDetailedInfoResult);
+
   const orderDetailedInfoResultjsonForm = JSON.stringify(
     orderDetailedInfoResult
   );
@@ -78,11 +86,11 @@ const updateMemberInfo = async (req, res) => {
     userbirthday: userbirthday,
     usergender: usergender,
   };
-  console.log("bundleUserInfo", bundleUserInfo);
+
   const ResultSetHeader = await loginModelinstance.updateUserWithNewInfo(
     bundleUserInfo
   );
-  console.log("ResultSetHeader :", ResultSetHeader);
+
   if (ResultSetHeader.serverStatus === 2) {
     req.session.username = username;
     res.send("會員資訊更新成功");

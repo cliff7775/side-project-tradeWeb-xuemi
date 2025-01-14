@@ -26,6 +26,7 @@ const getLoginWebPage = (req, res) => {
   res.render("login", {
     username: username,
     token: token,
+    nonce: res.locals.cspNonce,
   });
 };
 
@@ -59,6 +60,7 @@ const authenticateUser = async (req, res) => {
     res.render("login", {
       username: user_name,
       successLogin: message,
+      nonce: res.locals.cspNonce,
     });
   }
 };

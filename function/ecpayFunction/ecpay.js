@@ -17,6 +17,7 @@ function getFormattedDate() {
 
 function generateUnix() {
   let orderTimeStamp = "CliffWB" + new Date().getTime();
+
   return orderTimeStamp;
 }
 

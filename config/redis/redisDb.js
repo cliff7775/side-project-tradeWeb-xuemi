@@ -1,6 +1,6 @@
 module.exports = {
-  url: `請填值`,
-  password: `請填值`,
+  url: "請填值",
+  password: "請填值",
   socket: {
     reconnectStrategy: function (retries) {
       if (retries > 20) {

@@ -67,7 +67,6 @@ const getCheckoutWebPage = async (req, res) => {
   console.log("getProductID", productIdList, productIdList.length);
   const finishCertificationProduct =
     await productModelinstance.getProductInCart(productIdList);
-  console.log("finishCertificationProduct", finishCertificationProduct);
 
   let totalOrderPrice = null;
   let productDescList = ""; //null + 字串值得話 null變成字串一部分
@@ -80,10 +79,6 @@ const getCheckoutWebPage = async (req, res) => {
     totalOrderPrice += orderPrice;
     productDescList += `項目${item.product_name}*${orderNum}=總費用${orderPrice}元#`;
     productDescAttachments += `itemKey=${item.product_id}/itemNum=${orderNum}/itemPrice=${orderPrice}&`;
-
-    console.log(
-      `商品ID${item.product_id} 商品${item.product_name} 商品數${orderNum} 費用${item.product_price} 總費用${orderPrice}`
-    );
   }
 
   //參數
@@ -104,12 +99,11 @@ const getCheckoutWebPage = async (req, res) => {
 
   const htmlString = create.payment_client.aio_check_out_all(base_param);
   res.send(htmlString);
-  console.log("儲存到redis", userID, productDescAttachments);
+
   await redisClient.set(userID, productDescAttachments, { EX: 86400 });
 };
 
 const getInfoFromEcpay = async (req, res) => {
-  console.log("接收綠界回傳的資料 :", req.body);
   const {
     MerchantTradeNo,
     PaymentDate,
@@ -136,7 +130,6 @@ const getInfoFromEcpay = async (req, res) => {
     const checkValue = create.payment_client.helper.gen_chk_mac_value(data);
     // 驗證 CheckMacValue 是否正確
     const isValid = CheckMacValue === checkValue;
-    console.log("確認交易正確性：", isValid);
 
     if (!isValid) {
       console.error("CheckMacValue 驗證失敗。");
@@ -158,7 +151,6 @@ const getInfoFromEcpay = async (req, res) => {
       totalItemNum: CustomField2, //訂單商品總數
       tradeItemList: userOrderItemList, //訂單詳細資訊
     };
-    console.log("bundleUserInfo ", bundleUserInfo);
     redisClient.del(CustomField1, (err, response) => {
       if (err) {
         console.error("錯誤:", err);

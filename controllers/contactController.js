@@ -5,6 +5,7 @@ const crypto = require("crypto"); // 引用 加密模組
 const fs = require("fs"); //引用 檔案系統模組
 const path = require("path"); //引用 路徑模組
 const cluster = require("cluster"); //引用 叢集模組
+const { Buffer } = require("buffer");
 //【引用外部設定檔模組功能】
 //------------------------------------------------------------------------------>
 const {
@@ -18,7 +19,8 @@ const {
 } = require("../config/googleAPI/mailformat.js");
 const contactModel = require("../models/contactModel.js");
 const contactModelinstance = new contactModel();
-
+let data = "";
+let binaryData = "";
 //【設定參數並實例化】
 //------------------------------------------------------------------------------>
 const worker = cluster.worker;
@@ -38,12 +40,12 @@ async function setupGmailEngine() {
   googleMailer = await setupGmailEngine();
   console.log("Google 寄信功能建立完成");
 })();
-
+let chunks = [];
 //【請求方法-函式處理區】
 //------------------------------------------------------------------------------>
 const getContactWebPage = (req, res) => {
   const username = req.session.username || "會員";
-  res.render("contactUs", { username: username });
+  res.render("contactUs", { username: username, nonce: res.locals.cspNonce });
 };
 
 const sendUserMessageWithFile = (req, res) => {
@@ -55,9 +57,10 @@ const sendUserMessageWithFile = (req, res) => {
   const filepath = path.join(__dirname, "../fileStore", fileName);
   req.on("data", (chunk) => {
     //專讀取二進置資料
+    chunks.push(chunk);
+    const buffer = Buffer.concat(chunks); // 將多個buffer拼接成一個新的buffer
 
-    console.log(worker.id, "filepath", filepath);
-    fs.appendFile(filepath, chunk, (err) => {
+    fs.writeFile(filepath, buffer, (err) => {
       if (err) console.error("寫入檔案時發生錯誤:", err);
     });
   });
@@ -68,6 +71,7 @@ const sendUserMessageWithFile = (req, res) => {
       fs.unlink(filepath, (err) => {
         if (err) throw err;
         console.log("Successfully Deleted");
+        chunks = [];
       });
       if (err) console.error(err);
       console.log("Email sent");
@@ -90,7 +94,10 @@ const sendUserMessage = (req, res) => {
 
 const getUpdatePassWordWebPage = (req, res) => {
   const username = req.session.username || "會員";
-  res.render("updateUserPassWord", { username: username });
+  res.render("updateUserPassWord", {
+    username: username,
+    nonce: res.locals.cspNonce,
+  });
 };
 
 const updateUserPassWord = async (req, res) => {

@@ -84,6 +84,14 @@ function deleteRecordDataWithReq() {
   recordSingleReqResourceUrlPath.length = 0;
   recordAllReqResourceUrlPath.length = 0;
 }
+
 //【函式暴露】
 //------------------------------------------------------------------------------>
 module.exports = recordRequestResource;
+
+// console.log("檢查總請求數 :", collectReqResourceTotalNum);
+// console.log("檢查紀錄和判斷網站資源路徑名單 :", recordSingleReqResourceUrlPath);
+// console.log(
+//   "檢查紀錄網站資源的請求資源路徑和請求數名單 :",
+//   recordAllReqResourceUrlPath
+// );

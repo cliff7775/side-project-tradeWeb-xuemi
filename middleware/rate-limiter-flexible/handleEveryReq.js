@@ -20,11 +20,14 @@ async function handleEveryReq(req, res, next) {
     //console.log("成功消耗點數:", rateLimiterRes);
     next();
   } catch (rateLimiterRes) {
-    console.error("無法消耗點數:", rateLimiterRes);
+    //console.error("無法消耗點數:", rateLimiterRes);
+    const username = req.session.username || "會員";
     // 處理點數不足的情況
     res.status(429).render("redirectUrl", {
       count: 60 * 60 * 24,
-      message: "請求次數過多",
+      message: "請求次數過多，暫停一日資源請求",
+      username: username,
+      nonce: res.locals.cspNonce,
     });
   }
 }

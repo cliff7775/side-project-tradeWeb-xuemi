@@ -29,6 +29,7 @@ const getSpecificCategoryWebPage = async (req, res) => {
       identifyText: categoryId,
       feedbackText: feedbackText,
       productInfoResult,
+      nonce: res.locals.cspNonce,
     });
     return;
   } else if (categoryId && priceRange) {
@@ -48,6 +49,7 @@ const getSpecificCategoryWebPage = async (req, res) => {
       identifyText: categoryId,
       feedbackText: feedbackText,
       productInfoResult,
+      nonce: res.locals.cspNonce,
     });
     return;
   } else if (categoryId && priceSorting) {
@@ -67,6 +69,7 @@ const getSpecificCategoryWebPage = async (req, res) => {
       identifyText: categoryId,
       feedbackText: feedbackText,
       productInfoResult,
+      nonce: res.locals.cspNonce,
     });
     return;
   } else {
@@ -81,6 +84,7 @@ const getSpecificCategoryWebPage = async (req, res) => {
       identifyText: categoryId,
       feedbackText: feedbackText,
       productInfoResult,
+      nonce: res.locals.cspNonce,
     });
   }
 };

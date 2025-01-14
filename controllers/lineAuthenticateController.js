@@ -28,7 +28,7 @@ const setupAuthorizationUrl = (req, res) => {
   const setParamsForauthorizationUrl =
     authorizationUrl +
     `?response_type=code&prompt=consent&client_id=${channelID}&redirect_uri=${lionCallBackUrl}&state=${state}&scope=profile%20openid%20email`;
-  console.log("setParamsForauthorizationUrl :", setParamsForauthorizationUrl);
+
   res.redirect(setParamsForauthorizationUrl);
 };
 
@@ -97,7 +97,10 @@ const reqUserProfileInfo = async (req, res) => {
         req.session.userRole = userInfo.role_name; //資料庫回傳該用戶身分
         req.session.username = name; //LINE回傳用戶名
         req.session.userID = userInfo.user_id;
-        res.render("home", { username: req.session.username });
+        res.render("home", {
+          username: req.session.username,
+          nonce: res.locals.cspNonce,
+        });
       }
       return;
     }
@@ -108,7 +111,10 @@ const reqUserProfileInfo = async (req, res) => {
       req.session.userRole = userInfoResult[0].role_name; //資料庫回傳該用戶身分
       req.session.username = name; //LINE回傳用戶名
       req.session.userID = userInfoResult[0].user_id;
-      res.render("home", { username: req.session.username });
+      res.render("home", {
+        username: req.session.username,
+        nonce: res.locals.cspNonce,
+      });
     }
   } catch (error) {
     console.error("Error fetching user info:", error);

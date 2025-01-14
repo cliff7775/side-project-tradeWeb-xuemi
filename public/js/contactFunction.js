@@ -24,7 +24,7 @@ uploadElm.addEventListener("click", () => {
   const fileReader = new FileReader();
   fileReader.onload = async (e) => {
     const fileName = encodeURIComponent(theFile.name);
-    const chunk_size = 5000;
+    const chunk_size = 10000;
     const chunkCount = Math.ceil(e.target.result.byteLength / chunk_size);
 
     for (let chunkId = 0; chunkId < chunkCount + 1; chunkId++) {
@@ -32,6 +32,7 @@ uploadElm.addEventListener("click", () => {
         chunkId * chunk_size,
         chunkId * chunk_size + chunk_size
       );
+
       await fetch(
         "https://cliffweb.zeabur.app/contact/sendUserMessageWithFile",
         {

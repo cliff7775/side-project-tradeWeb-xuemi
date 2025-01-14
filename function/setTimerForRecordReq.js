@@ -36,6 +36,7 @@ function setTimerForRecordReq(totalNumOfReq, totalDataOfReqResource, time) {
     }
   });
 }
+
 //【函式暴露】
 //------------------------------------------------------------------------------>
 module.exports = setTimerForRecordReq;

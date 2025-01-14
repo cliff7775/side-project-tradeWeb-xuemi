@@ -22,6 +22,7 @@ const queryUserInputTextToDb = async (req, res) => {
       commonText: commonText,
       identifyText: searchValue,
       feedbackText: feedbackText,
+      nonce: res.locals.cspNonce,
     });
     return;
   }
@@ -43,6 +44,7 @@ const queryUserInputTextToDb = async (req, res) => {
       identifyText: searchValue,
       feedbackText: feedbackText,
       productInfoResult: productInfoResult,
+      nonce: res.locals.cspNonce,
     });
   } else if (priceRange) {
     const bundleQueryInfo = {
@@ -60,6 +62,7 @@ const queryUserInputTextToDb = async (req, res) => {
       identifyText: searchValue,
       feedbackText: feedbackText,
       productInfoResult: productInfoResult,
+      nonce: res.locals.cspNonce,
     });
   } else if (priceSorting) {
     const bundleQueryInfo = {
@@ -77,6 +80,7 @@ const queryUserInputTextToDb = async (req, res) => {
       identifyText: searchValue,
       feedbackText: feedbackText,
       productInfoResult: productInfoResult,
+      nonce: res.locals.cspNonce,
     });
   } else {
     const feedbackText = `此頁顯示9件 / 共${numberofQueryLists}件商品`;
@@ -86,6 +90,7 @@ const queryUserInputTextToDb = async (req, res) => {
       identifyText: searchValue,
       feedbackText: feedbackText,
       productInfoResult: queryInfoResult,
+      nonce: res.locals.cspNonce,
     });
   }
 };

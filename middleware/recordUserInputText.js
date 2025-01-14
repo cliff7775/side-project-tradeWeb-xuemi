@@ -18,7 +18,7 @@ function recordUserInputText(req, res, next) {
   );
   fs.appendFile(userInputLogPath, queryValue, (error) => {
     if (error) {
-      console.log("進站輸寫錯誤 :", error);
+      console.error("進站輸寫錯誤 :", error);
     }
   });
 

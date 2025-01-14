@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 //【引用外部設定檔模組功能】
 //------------------------------------------------------------------------------>
+const handleEndPointFormReq = require("../middleware/rate-limiter-flexible/handleEndPointReq.js");
 const contactController = require("../controllers/contactController.js");
 //【請求方法處理】
 //------------------------------------------------------------------------------>
@@ -14,7 +15,11 @@ router.post(
   contactController.sendUserMessageWithFile
 );
 
-router.post("/sendUpdateUserPassWord", contactController.updateUserPassWord);
+router.post(
+  "/sendUpdateUserPassWord",
+  handleEndPointFormReq,
+  contactController.updateUserPassWord
+);
 
 router.get("/updateUserPassWord", contactController.getUpdatePassWordWebPage);
 router.get("/", contactController.getContactWebPage);
