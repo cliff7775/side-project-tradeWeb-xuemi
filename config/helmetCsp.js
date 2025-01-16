@@ -33,5 +33,9 @@ module.exports = {
       "https://cdn.jsdelivr.net/npm/chart.js",
     ],
     "frame-src": ["'self'", "https://td.doubleclick.net/"],
+    "form-action": [
+      "'self'",
+      "https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5",
+    ],
   },
 };

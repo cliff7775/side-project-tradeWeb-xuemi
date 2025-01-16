@@ -1,6 +1,7 @@
 //【設置 Line Providers Admin用戶端 Basic information】
 //------------------------------------------------------------------------------>
-const lionCallBackUrl = "請填值";
+const lionCallBackUrl =
+  "https://cliffweb.zeabur.app/linev2.1/returnAuthorizationCode";
 const channelID = "請填值";
 const channelSecret = "請填值";
 const authorizationUrl = `https://access.line.me/oauth2/v2.1/authorize`;

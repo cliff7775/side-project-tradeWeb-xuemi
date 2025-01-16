@@ -1,0 +1,49 @@
+.privacyPolicyWrapper{
+    width: 100%;
+    height: 1500px;
+    position: relative;
+}
+
+
+.privacyPolicyBox{
+    border: 2px solid #000;
+    width: 600px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* position 搭配 transform 的至中方式*/
+    border-radius: 5px;
+    /*變形屬性  百分比的參考值是自己
+    transform: translate(100px,100px) scale(2);
+    */
+    box-shadow: 0 0 5px gray; /* 陰影效果 */
+}
+
+.privacyPolicyMainStyle{
+    height: auto;
+    margin: 5px 5px 5px 5px;
+}
+
+.privacyPolicyWrapper p{
+    font-size:17px;
+    padding: 0; /* 內邊距 */
+    display: inline-block;
+}
+
+h2{
+    font-size:20px;
+}
+
+.firstBoxSection{
+    width: 100%;
+    background-color: #000;
+    text-align:center; /* 內部內容致置中 */
+}
+
+.firstBoxSection p{
+    font-size: 35px;
+    color: aliceblue;
+}
+

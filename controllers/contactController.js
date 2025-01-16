@@ -6,6 +6,7 @@ const fs = require("fs"); //引用 檔案系統模組
 const path = require("path"); //引用 路徑模組
 const cluster = require("cluster"); //引用 叢集模組
 const { Buffer } = require("buffer");
+let chunks = []; //存儲檔案二進制數據
 //【引用外部設定檔模組功能】
 //------------------------------------------------------------------------------>
 const {
@@ -19,8 +20,6 @@ const {
 } = require("../config/googleAPI/mailformat.js");
 const contactModel = require("../models/contactModel.js");
 const contactModelinstance = new contactModel();
-let data = "";
-let binaryData = "";
 //【設定參數並實例化】
 //------------------------------------------------------------------------------>
 const worker = cluster.worker;
@@ -40,7 +39,6 @@ async function setupGmailEngine() {
   googleMailer = await setupGmailEngine();
   console.log("Google 寄信功能建立完成");
 })();
-let chunks = [];
 //【請求方法-函式處理區】
 //------------------------------------------------------------------------------>
 const getContactWebPage = (req, res) => {

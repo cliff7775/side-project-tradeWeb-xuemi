@@ -2,7 +2,8 @@
 //------------------------------------------------------------------------------>
 const CLIENT_ID = "請填值";
 const CLIENT_SECRET = "請填值";
-const REDIRECT_URI = "請填值";
+const REDIRECT_URI =
+  "https://cliffweb.zeabur.app/googleOauth2.0/oauthServerCallback";
 
 const SCOPES = [
   "https://www.googleapis.com/auth/userinfo.profile",

@@ -120,6 +120,9 @@ const exchangeTokentoUserdata = async (req, res) => {
       bundleUserInfo
     ); //新增成新用戶
     if (ResultSetHeader.serverStatus === 2) {
+      const userInfoResult = await loginModelstance.validThirdPartyUserInfo(
+        email
+      );
       req.session.userRole = userInfoResult[0].role_name; //資料庫回傳該用戶身分
       req.session.username = name; //GOOGLE回傳用戶名
       req.session.userID = userInfo.user_id;

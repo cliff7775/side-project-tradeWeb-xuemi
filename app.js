@@ -92,6 +92,8 @@ if (cluster.isPrimary) {
   const memberRouter = require("./routes/memberRouter.js");
   const robotsRouter = require("./routes/robots.js"); //
   const sitemapRouter = require("./routes/sitemap.js"); //
+  const recordInternetAttackRouter = require("./routes/recordInternetAttack.js");
+  const privacyPolicyRouter = require("./routes/privacyPolicyRouter.js");
   const noFoundHandlerRouter = require("./routes/noFoundRouter.js");
   const errorHandlerRouter = require("./routes/errorHandlerRouter.js");
   //【全局中間件設置】
@@ -136,7 +138,10 @@ if (cluster.isPrimary) {
       })
     ); //使用 helmet 中間件，自定義 Content-Security-Policy 標頭
     app.use((req, res, next) => {
-      res.setHeader("X-Xss-Protection", "1");
+      res.setHeader(
+        "X-Xss-Protection",
+        "1;report=https://cliffweb.zeabur.app/recordIntAttack/"
+      );
       next();
     });
     app.use(workerSendReqDataHandler, express.static("public")); // 紀錄請求資源跟回應靜態檔案
@@ -159,6 +164,8 @@ if (cluster.isPrimary) {
     app.use("/linev2.1", lineAuthenticateRouter); //
     app.use("/robots.txt", robotsRouter); // robots.txt文件響應
     app.use("/sitemap.xml", sitemapRouter); // sitemap文件響應
+    app.use("/recordIntAttack", recordInternetAttackRouter); //紀錄XSS攻擊
+    app.use("/privacy_policy", privacyPolicyRouter); //隱私權政策頁面
     app.use(/^(?!\/$).*/, noFoundHandlerRouter); // 找不到頁面流程響應
     app.use("/", indexRouter); // 首頁流程響應
     app.use(errorHandlerRouter); // 錯誤流程

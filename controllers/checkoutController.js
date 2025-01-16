@@ -52,8 +52,8 @@ const getCheckoutWebPage = async (req, res) => {
   if (matchedUserOrderList.length === 0) {
     return;
   }
-  console.log("篩選前", userOrderList);
-  console.log("篩選後", matchedUserOrderList);
+  //"篩選前", userOrderList
+  //"篩選後", matchedUserOrderList
   if (matchedUserOrderList.length !== userOrderList.length) return;
 
   const orderGrouped = matchedUserOrderList.reduce((acc, item) => {
@@ -62,9 +62,8 @@ const getCheckoutWebPage = async (req, res) => {
     return acc;
   }, {});
 
-  console.log("grouped", orderGrouped);
   const productIdList = Object.keys(orderGrouped);
-  console.log("getProductID", productIdList, productIdList.length);
+  //console.log("getProductID", productIdList, productIdList.length);
   const finishCertificationProduct =
     await productModelinstance.getProductInCart(productIdList);
 
@@ -97,8 +96,18 @@ const getCheckoutWebPage = async (req, res) => {
     CustomField2: String(totalOrderItemNum),
   };
 
-  const htmlString = create.payment_client.aio_check_out_all(base_param);
-  res.send(htmlString);
+  const ecpayFormString = create.payment_client.aio_check_out_all(base_param);
+  const scriptContent = ecpayFormString.match(/<script[^>]*>/);
+  const newstr = `<script nonce="${res.locals.cspNonce}" type="text/javascript">`;
+
+  const redirectEcpayhtmlString = ecpayFormString.replace(
+    scriptContent[0],
+    newstr
+  );
+
+  //const redirectEcpayhtmlString = `<script nonce="${res.locals.cspNonce}">${ecpayFormString}</script>`;
+  console.log(redirectEcpayhtmlString);
+  res.send(redirectEcpayhtmlString);
 
   await redisClient.set(userID, productDescAttachments, { EX: 86400 });
 };

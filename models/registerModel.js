@@ -25,7 +25,9 @@ class registerModel {
     try {
       const result = await authenticationUserFromDB(usermail);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 

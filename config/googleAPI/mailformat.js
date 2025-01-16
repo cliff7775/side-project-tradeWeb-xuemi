@@ -50,7 +50,7 @@ function commonMessageFormat(userInfoBox) {
   return {
     from: usermail,
     to: "sideprojecttradeweb@gmail.com",
-    subject: `Hello `,
+    subject: mailSubject || `Hello `,
     html: returnUserFeedBackMailFormat(
       username,
       usermail,
@@ -67,7 +67,7 @@ function messageWithFileFormat(userInfoBox) {
   return {
     from: usermail,
     to: "sideprojecttradeweb@gmail.com",
-    subject: `Hello `,
+    subject: mailSubject || `Hello `,
     html: returnUserFeedBackMailFormat(
       username,
       usermail,

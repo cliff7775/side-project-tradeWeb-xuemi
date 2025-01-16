@@ -12,56 +12,72 @@ class adminOrdersModel {
     try {
       const result = await queryAllTradesStateRateFromDB();
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async queryRegisterUserNum() {
     try {
       const result = await queryRegisterUserNumFromDB();
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async queryCalculateTotalTeadePrice() {
     try {
       const result = await queryCalculateTotalTeadePriceFromDB();
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async queryTopSaleProductNum() {
     try {
       const result = await queryTopSaleProductNumFromDB();
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async queryEachCategorySaleNum() {
     try {
       const result = await queryEachCategorySaleNumFromDB();
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async queryHeightCalculatePriceUsers() {
     try {
       const result = await queryHeightCalculatePriceUsersFromDB();
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async queryTopCategorySaleProductNum(categoryID) {
     try {
       const result = await queryTopCategorySaleProductNumFromDB(categoryID);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async accessSpecificTradeDetailedInfo(tradeNum) {
     try {
       const result = await accessSpecificTradeDetailedInfoFromDB(tradeNum);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async updateSpecificTradeState(tradeNum, tradeUpdateState) {
@@ -71,28 +87,36 @@ class adminOrdersModel {
         tradeUpdateState
       );
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async accessAllTradesByState(tradeStateSort) {
     try {
       const result = await accessAllTradesByStateFromDB(tradeStateSort);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async accessAllTradesByDate(tradeDateSort) {
     try {
       const result = await accessAllTradesByDateFromDB(tradeDateSort);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async accessTradesBySpecificTime(tradeChoseDate) {
     try {
       const result = await accessTradesBySpecificTime(tradeChoseDate);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
@@ -235,7 +259,7 @@ function updateSpecificTradeStateFromDB(tradeNum, tradeUpdateState) {
     case "false":
       value += "不成立";
   }
-  console.log("value", value);
+
   return new Promise((resolve, reject) => {
     pool.getConnection((err, conn) => {
       const sql = `UPDATE spMerchantrade SET trade_is_established = "${value}" WHERE trade_id = ? ;`;
@@ -260,7 +284,7 @@ function accessAllTradesByStateFromDB(tradeStateSort) {
     case "false":
       value += "不成立";
   }
-  console.log("value", value);
+
   return new Promise((resolve, reject) => {
     pool.getConnection((err, conn) => {
       const sql = `SELECT splinkUsersAndTrades.user_id , ( SELECT user_name FROM spusers WHERE user_id = splinkUsersAndTrades.user_id) , spMerchantrade.trade_id, spMerchantrade.trade_date , spMerchantrade.trade_process_state , spMerchantrade.trade_productNum , spMerchantrade.trade_payment_type,spMerchantrade.trade_is_established , spMerchantrade.trade_total_amount FROM spMerchantrade inner join splinkUsersAndTrades on spMerchantrade.trade_id = splinkUsersAndTrades.trade_id AND spMerchantrade.trade_is_established = "${value}";`;

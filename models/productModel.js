@@ -14,49 +14,63 @@ class productModel {
     try {
       const result = await getAllProductFromDB(categoryId);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async accessUserOrdersInfo(categoryId) {
     try {
       const result = await accessUserOrdersFromDB(categoryId);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async accessOrderWithDetailedInfo(merchantradeValue) {
     try {
       const result = await accessOrderWithDetailedInfoFromDB(merchantradeValue);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async sortByPricesAndNeeds(bundleQueryInfo) {
     try {
       const result = await sortByPricesAndNeedsFromDB(bundleQueryInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async sortByPrices(bundleQueryInfo) {
     try {
       const result = await sortByPricesFromDB(bundleQueryInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async sortByNeeds(bundleQueryInfo) {
     try {
       const result = await sortByNeedsFromDB(bundleQueryInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async getProductInCart(productIdList) {
     try {
       const result = await getOrderProductFromDB(productIdList);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async storeUserOrders(bundleUserInfo) {
@@ -64,7 +78,6 @@ class productModel {
     const { merchantTradeNo } = bundleUserInfo;
     try {
       const productInfoList = feedbackProductSaleNumInsertInfo(tradeItemList);
-      console.log("productInfoList :", productInfoList);
       for (const productItem of productInfoList) {
         await storeUserOrdersEachProductNumInSpproductsFromDB(productItem);
       }
@@ -77,14 +90,18 @@ class productModel {
       );
 
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async accessAllUserOrdersInfo() {
     try {
       const result = await accessAllUserOrdersInfoFromDB();
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
@@ -145,7 +162,7 @@ function sortByPricesAndNeedsFromDB(bundleQueryInfo) {
       const sql = `SELECT * FROM spproducts WHERE product_category_id= ? AND (product_online_status = "online") AND ${feedbackProductPriceFilter(
         priceRange
       )} ORDER BY product_price ${feedbackProductSortFilter(priceSorting)}`;
-      console.log(sql);
+
       conn.query(sql, [categoryId], (err, rows) => {
         if (err) {
           reject(err);
@@ -185,7 +202,7 @@ function sortByNeedsFromDB(bundleQueryInfo) {
       const sql = `SELECT * FROM spproducts WHERE product_category_id=? AND (product_online_status = "online") ORDER BY product_price ${feedbackProductSortFilter(
         priceSorting
       )}`;
-      console.log(sql);
+
       conn.query(sql, [categoryId], (err, rows) => {
         if (err) {
           reject(err);
@@ -303,7 +320,6 @@ function storeUserOrdersInTradesAndProductsFromDB(
 
 function storeUserOrdersEachProductNumInSpproductsFromDB(productItem) {
   const { itemKey, itemNum } = productItem;
-  console.log("itemKey, itemNum :", itemKey, itemNum);
   return new Promise((resolve, reject) => {
     pool.getConnection((err, conn) => {
       const sql = `UPDATE spproducts SET product_sales_quantity = product_sales_quantity + ? WHERE product_id = ?;`;

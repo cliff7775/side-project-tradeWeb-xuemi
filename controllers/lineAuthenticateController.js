@@ -107,7 +107,11 @@ const reqUserProfileInfo = async (req, res) => {
     const ResultSetHeader = await loginModelstance.createNewThirdPartyUser(
       bundleUserInfo
     ); //新增成新用戶
+    console.log("ResultSetHeader :", ResultSetHeader);
     if (ResultSetHeader.serverStatus === 2) {
+      const userInfoResult = await loginModelstance.validThirdPartyUserInfo(
+        email
+      );
       req.session.userRole = userInfoResult[0].role_name; //資料庫回傳該用戶身分
       req.session.username = name; //LINE回傳用戶名
       req.session.userID = userInfoResult[0].user_id;

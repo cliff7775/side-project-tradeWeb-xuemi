@@ -18,56 +18,63 @@ class loginModel {
     try {
       const result = await accessUserInfoFromDB(userID);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async validUserInfo(email) {
     try {
       const result = await validUserInfoFromDB(email);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async validThirdPartyUserInfo(email) {
     try {
       const result = await validThirdPartyUserInfoFromDB(email);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async updateUserInfo(userID, name) {
     try {
       const result = await updateUserInfoFromDB(userID, name);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
-
-  // async validUserPwd(oldPwd) {
-  //   try {
-  //     const result = await validUserPwdFromDB(oldPwd);
-  //     return result;
-  //   } catch (error) {}
-  // }
 
   async updateUserWithNewInfo(bundleUserInfo) {
     try {
       const result = await updateUserWithNewInfoFromDB(bundleUserInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async updateUserPwd(bundleUserInfo) {
     try {
       const result = await updateUserPwdFromDB(bundleUserInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async createNewThirdPartyUser(bundleUserInfo) {
     try {
       const result = await createNewThirdPartyUserFromDB(bundleUserInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
@@ -137,28 +144,12 @@ function updateUserInfoFromDB(userID, name) {
   });
 }
 
-// function validUserPwdFromDB(oldPwd) {
-//   return new Promise((resolve, reject) => {
-//     pool.getConnection((err, conn) => {
-//       const sql = `SELECT * FROM spusers WHERE user_password = ?`;
-//       conn.query(sql, [oldPwd], (err, rows) => {
-//         if (err) {
-//           reject(err);
-//         } else {
-//           resolve(rows);
-//         }
-//       });
-//       pool.releaseConnection(conn);
-//     });
-//   });
-// }
-
 function updateUserWithNewInfoFromDB(bundleUserInfo) {
   const { userID, ...data } = bundleUserInfo;
   const prepareUserInsertInfo = feedbackUserUpdateFilter(data);
   const insertSignUserInfo = prepareUserInsertInfo.replace(/\)\(/g, "),(");
   const finishUserInsertInfo = insertSignUserInfo.replace(/\(|\)/g, "");
-  console.log("finishUserInsertInf", finishUserInsertInfo);
+
   return new Promise((resolve, reject) => {
     pool.getConnection((err, conn) => {
       const sql = `UPDATE spusers SET ${finishUserInsertInfo} WHERE user_id = ?`;
@@ -195,7 +186,7 @@ function createNewThirdPartyUserFromDB(bundleUserInfo) {
   const { username, usermail, userpassword } = bundleUserInfo;
   return new Promise((resolve, reject) => {
     pool.getConnection((err, conn) => {
-      const sql = `INSERT INTO spusers(user_id,user_name,user_email,user_password,user_role_id) VALUES (UUID(),?,?,?,1)`;
+      const sql = `INSERT INTO spusers(user_id,user_name,user_email,user_password,user_role_id,user_gender_id ) VALUES (UUID(),?,?,?,1,1)`; //`INSERT INTO spusers(user_id,user_name,user_email,user_password,user_role_id) VALUES (UUID(),?,?,?,1)`
       conn.query(sql, [username, usermail, userpassword], (err, rows) => {
         if (err) {
           reject(err);

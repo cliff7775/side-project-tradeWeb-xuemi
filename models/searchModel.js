@@ -13,28 +13,36 @@ class searchModel {
       const result = await queryUserInputTextFromDB(queryValue);
 
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async sortByPricesAndNeeds(bundleQueryInfo) {
     try {
       const result = await sortByPricesAndNeedsFromDB(bundleQueryInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async sortByPrices(bundleQueryInfo) {
     try {
       const result = await sortByPricesFromDB(bundleQueryInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async sortByNeeds(bundleQueryInfo) {
     try {
       const result = await sortByNeedsFromDB(bundleQueryInfo);
       return result;
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 

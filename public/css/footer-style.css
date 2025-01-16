@@ -1,4 +1,33 @@
 .footerWrapper{
-    height: 100px;
+    height: 120px;
     background-color: black;
+}
+
+.footerWrapper p{
+    color:#fff;
+    font-size:20px;
+    padding: 0; /* 內邊距 */
+    margin: 5px  5px;
+    display: inline-block;
+}
+
+.footerWrapper .modFlexElmPosition{
+    display: flex;
+}
+
+.footerWrapper .modCenterElmPosition{
+    width: 80%;
+    height: 120px;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.footerWrapper .bnt{
+    display: inline-block;
+    width: 150px;
+    height: auto;
+    text-align:center;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin: auto;
 }
