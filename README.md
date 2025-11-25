@@ -171,7 +171,9 @@ Controller ──► Service ──► MySQL (商品 / 訂單 / 使用者)
 
 
 
-!\[網站頁面架構圖](https://raw.githubusercontent.com/cliff7775/side-project-tradeWeb-xuemi/main/%E5%9C%96%E6%AA%94/%E7%B6%B2%E7%AB%99%E6%9E%B6%E6%A7%8B.jpg)
+[網站頁面架構圖](https://raw.githubusercontent.com/cliff7775/side-project-tradeWeb-xuemi/main/%E5%9C%96%E6%AA%94/%E7%B6%B2%E7%AB%99%E6%9E%B6%E6%A7%8B.jpg)
 
 
+
+[用戶進站與網站背後運作流程圖](https://github.com/cliff7775/side-project-tradeWeb-xuemi/blob/main/%E5%9C%96%E6%AA%94/%E7%94%A8%E6%88%B6%E9%80%B2%E7%AB%99%E6%B5%81%E7%A8%8B.jpg)
 
