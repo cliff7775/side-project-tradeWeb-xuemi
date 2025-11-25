@@ -171,5 +171,5 @@ Controller ──► Service ──► MySQL (商品 / 訂單 / 使用者)
 
 
 
-!\[image]./圖檔/網站架構.jpg)
+!\[image](./圖檔/網站架構.jpg)
 
