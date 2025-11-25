@@ -171,5 +171,5 @@ Controller ──► Service ──► MySQL (商品 / 訂單 / 使用者)
 
 
 
-!\[GitHub 專案縮圖](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
+!\[GitHub 專案縮圖](https://www.youtube.com/s/desktop/33c3234b/img/favicon\_32x32.png)
 
