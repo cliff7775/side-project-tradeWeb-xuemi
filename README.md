@@ -171,5 +171,7 @@ Controller ──► Service ──► MySQL (商品 / 訂單 / 使用者)
 
 
 
-!\[Website Architecture.jpg](https://raw.githubusercontent.com/bucketio/img13/main/2025/11/25/1764052723912-f7e3cf10-d1f8-4406-a5df-6bb24e3fc9e2.jpg '網站頁面架構圖')
+!\[網站頁面架構圖](https://raw.githubusercontent.com/cliff7775/side-project-tradeWeb-xuemi/main/%E5%9C%96%E6%AA%94/%E7%B6%B2%E7%AB%99%E6%9E%B6%E6%A7%8B.jpg)
+
+
 
